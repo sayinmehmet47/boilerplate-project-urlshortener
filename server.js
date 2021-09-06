@@ -48,7 +48,7 @@ app.post('/api/shorturl', (req, res) => {
 
 app.get('/api/shorturl/:id', (req, res) => {
   // const id = req.body.id;
-  Url.findById(req.body.id, (err, data) => {
+  Url.findOne({ _id: req.params.id }, (err, data) => {
     if (!data) {
       res.json({ error: 'Invalid URL' });
     } else {
