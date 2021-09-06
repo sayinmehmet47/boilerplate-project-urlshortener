@@ -44,12 +44,11 @@ app.post('/api/shorturl', (req, res) => {
       console.log('address', address);
     }
   );
-  console.log(something);
 });
 
 app.get('/api/shorturl/:id', (req, res) => {
-  const id = req.body.id;
-  Url.findById(id, (err, data) => {
+  // const id = req.body.id;
+  Url.findById(req.body.id, (err, data) => {
     if (!data) {
       res.json({ error: 'Invalid URL' });
     } else {
